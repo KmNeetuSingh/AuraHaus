@@ -1,4 +1,4 @@
-Here’s the updated **AuraHaus README** with detail# **AuraHaus** ✨🛍️  
+**AuraHaus** ✨🛍️  
 Your one-stop digital shop for everything stylish, trendy, and convenient! Built to deliver an unmatched shopping experience, AuraHaus combines speed, security, and cool tech to keep you coming back for more.
 
 ---
@@ -177,4 +177,3 @@ Your one-stop digital shop for everything stylish, trendy, and convenient! Built
 
 ---
 
-AuraHaus isn’t just an app; it’s a lifestyle.
