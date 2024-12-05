@@ -3,14 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Box, Img, SimpleGrid, Text } from "@chakra-ui/react";
-
-// Dummy slide data
-const slides = [
-  { img: "https://via.placeholder.com/300", title: "Title 1", description: "Description 1", bg: "#F3F4F6" },
-  { img: "https://via.placeholder.com/300", title: "Title 2", description: "Description 2", bg: "#E5E7EB" },
-  { img: "https://via.placeholder.com/300", title: "Title 3", description: "Description 3", bg: "#D1D5DB" },
-  { img: "https://via.placeholder.com/300", title: "Title 4", description: "Description 4", bg: "#9CA3AF" },
-];
+import slides from "../../Utils/Homepage/Slider1";
 
 const Slider1 = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -23,6 +16,7 @@ const Slider1 = () => {
     autoplay: false,
     dots: true,
     arrows: true,
+    draggable: true, // Allows sliding by clicking anywhere on the image
     customPaging: (i) => (
       <div
         style={{
@@ -39,12 +33,8 @@ const Slider1 = () => {
       <div
         style={{
           display: "flex",
-          flexDirection: "row",
           justifyContent: "center",
-          paddingTop: "10px",
-          position: "absolute",
-          bottom: "-20px",
-          width: "100%",
+          marginTop: "10px",
         }}
       >
         {dots}
@@ -77,26 +67,28 @@ const Slider1 = () => {
     <Box position="relative" maxWidth="100%" overflow="hidden" padding="10px">
       <Slider {...settings}>
         {slides.map((elem, i) => (
-          <SimpleGrid
+          <Box
             key={i}
             cursor="pointer"
-            p="0"
-            width={{ base: "100%", md: "90%", lg: "80%" }}
-            mx="auto"
-            gap="15px" // Added gap between slides
+            p="10px" // Adds gap between images
+            textAlign="center"
           >
-            <Box width="100%" onClick={() => setCurrentIndex(i)}>
-              <Img
-                src={elem.img}
-                alt="slider image"
-                width="100%"
-                height={{ base: "200px", md: "300px", lg: "400px" }}
-                objectFit="cover"
-                cursor="pointer"
-                borderRadius="md"
-              />
-            </Box>
-            <Box p="20px" textAlign="left" bgColor={elem.bg} h="150px">
+            <Img
+              src={elem.img}
+              alt="slider image"
+              width="100%"
+              height={{ base: "200px", md: "300px", lg: "400px" }}
+              objectFit="cover"
+              cursor="pointer"
+              borderRadius="md"
+            />
+            <Box
+              p="20px"
+              textAlign="left"
+              bgColor={elem.bg}
+              h="150px"
+              mt="10px" // Adds space between the image and content box
+            >
               <Text fontWeight="700" fontSize="20px">
                 {elem.title}
               </Text>
@@ -107,7 +99,7 @@ const Slider1 = () => {
                 SHOP NOW ▸
               </Text>
             </Box>
-          </SimpleGrid>
+          </Box>
         ))}
       </Slider>
     </Box>
