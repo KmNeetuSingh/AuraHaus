@@ -19,12 +19,12 @@ const Slider1 = () => {
     customPaging: (i) => (
       <div
         style={{
-          width: "8px",
-          height: "8px",
+          width: "6px",
+          height: "6px",
           background: i === currentIndex ? "#FFD670" : "#f5f5f5",
           borderRadius: "50%",
-          margin: "5px",
           cursor: "pointer",
+          margin: "5px 0",
         }}
       ></div>
     ),
@@ -32,11 +32,11 @@ const Slider1 = () => {
       <div
         style={{
           display: "flex",
-          justifyContent: "center",
-          padding: "10px",
+          flexDirection: "column",
           position: "absolute",
-          top: "-5px",
-          width: "100%",
+          right: "10px",
+          top: "50%",
+          transform: "translateY(-50%)",
         }}
       >
         {dots}
@@ -72,11 +72,11 @@ const Slider1 = () => {
           <SimpleGrid
             key={i}
             cursor="pointer"
-            p="10px"
+            p="0"
             width={{ base: "100%", md: "90%", lg: "80%" }}
             mx="auto"
           >
-            <Box mb="10px" mx="auto" width="100%">
+            <Box width="100%" onClick={() => setCurrentIndex(i)}>
               <Img
                 src={elem.img}
                 alt="slider image"
@@ -87,7 +87,13 @@ const Slider1 = () => {
                 borderRadius="md"
               />
             </Box>
-            <Box p="20px" textAlign="left" bgColor={elem.bg} h="150px">
+            <Box
+              p="20px"
+              textAlign="left"
+              bgColor={elem.bg}
+              h="150px"
+              mt="0" // Removed margin
+            >
               <Text fontWeight="700" fontSize="20px">
                 {elem.title}
               </Text>
