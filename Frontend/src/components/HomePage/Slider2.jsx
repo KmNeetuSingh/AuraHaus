@@ -82,6 +82,15 @@ const Slider2 = () => {
           prevArrow: false,
         },
       },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          nextArrow: false,
+          prevArrow: false,
+        },
+      },
     ],
   };
 
@@ -114,31 +123,38 @@ const Slider2 = () => {
       onMouseEnter={() => setShowArrows(true)} // Show arrows on hover
       onMouseLeave={() => setShowArrows(false)} // Hide arrows when hover ends
     >
-      <Text fontWeight={650} fontSize={"30px"}>
+      <Text fontWeight={650} fontSize={["24px", "30px"]}>
         Chosen For You
       </Text>
 
       <Slider {...settings}>
         {avva.map((elem, i) => (
-          <SimpleGrid key={i} cursor={"pointer"} padding={"10px"}>
+          <SimpleGrid key={i} cursor={"pointer"} padding={["5px", "10px", "20px"]}>
             <SimpleGrid
               boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2), 0px 2px 4px rgba(0, 0, 0, 0.15)"
               _hover={{ transform: "translateY(-5px)" }}
-              p={["10px", "20px", "20px", "20px"]}
+              p={["5px", "10px", "20px"]}
+              alignItems="center"
+              justifyContent="center"
             >
-              <Box mb={"10px"} mx={"auto"} w={"200px"}>
-                <Img alt="slider" width={"80%"} src={elem.image} />
+              <Box mb={"10px"} mx={"auto"} w={"100%"}>
+                <Img
+                  alt="slider"
+                  width={["80%", "70%", "80%", "80%"]}
+                  src={elem.image}
+                  objectFit="contain"
+                />
               </Box>
-              <Text fontSize={"12px"} fontWeight={700}>
+              <Text fontSize={["12px", "14px"]} fontWeight={700}>
                 {elem.title}
               </Text>
-              <Text fontWeight={400} fontSize={"16px"} whiteSpace="prewrap">
+              <Text fontWeight={400} fontSize={["12px", "14px", "16px"]} whiteSpace="prewrap">
                 {elem.description}
               </Text>
-              <Text fontWeight={700} fontSize={"14px"} color={"Black.500"}>
+              <Text fontWeight={700} fontSize={["12px", "14px"]} color={"Black.500"}>
                 {renderStars(elem.rating)}
               </Text>
-              <Text fontSize={"18px"} fontWeight={700}>
+              <Text fontSize={["16px", "18px"]} fontWeight={700}>
                 {elem.price.includes("-")
                   ? `$${elem.price.split("-")[0]} - $${
                       elem.price.split("-")[1]

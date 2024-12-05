@@ -1,7 +1,7 @@
 const avva = [
   {
     "title": "Summer Fridays",
-    "description": "Lip Butter balm for Hydration & Shine",
+    "description": "Lip Butter balm for Hydration",
     "image": "https://www.sephora.com/productimages/sku/s2802163-main-zoom.jpg?imwidth=166",
     "price": "24.00",
     "rating": 4.5
@@ -35,7 +35,7 @@ const avva = [
     "rating": 4.7
   },
   {
-    "title": "One-Size by Patrick Starr",
+    "title": "One-Size ",
     "description": "On Til Dawn Mattifying  SPF30",
     "image": "https://www.sephora.com/productimages/sku/s2490696-main-zoom.jpg?imwidth=166",
     "price": "14.00",

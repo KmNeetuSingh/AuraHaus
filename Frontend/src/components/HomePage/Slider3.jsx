@@ -1,10 +1,10 @@
-import { Box, Button, Img, SimpleGrid, Text } from "@chakra-ui/react";
+import { Box, Img, SimpleGrid, Text } from "@chakra-ui/react";
 import Slider from "react-slick";
-import slides from "../../Utils/Homepage/Slider5";
+import slides from "../../Utils/Homepage/Slider3";
 import { useNavigate } from "react-router-dom";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
-const Slider5 = () => {
+const Slider3 = () => {
   const handleNavigation = useNavigate();
 
   // Custom Next Arrow
@@ -99,9 +99,7 @@ const Slider5 = () => {
   const handleClick = (elem) => {
     const category = elem;
     handleNavigation(`/products`);
-    handleNavigation(
-      `/products?category=${category.replace(" & ", "%20%26%20")}`
-    );
+    handleNavigation(`/products?category=${category.replace(" & ", "%20%26%20")}`);
   };
 
   const ImgBox = ({ src, category }) => {
@@ -116,11 +114,7 @@ const Slider5 = () => {
   };
 
   return (
-    <Box
-      p={["4", "6", "12", "16"]}
-      pt={[6, 6, 6, 6]}
-      pb={[12, 12, 12, 12]}
-    >
+    <Box p={["4", "6", "12", "16"]} pt={[6, 6, 6, 6]} pb={[12, 12, 12, 12]}>
       <Text fontWeight={650} fontSize={"30px"}>
         New Arrivals
       </Text>
@@ -141,9 +135,12 @@ const Slider5 = () => {
           {slides.map((elem, i) => (
             <SimpleGrid key={i} cursor={"pointer"} padding={"10px"}>
               <SimpleGrid
-                boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2), 0px 2px 4px rgba(0, 0, 0, 0.15)"
+                boxShadow="0px 6px 12px rgba(0, 0, 0, 0.3)"
                 _hover={{ transform: "translateY(-5px)" }}
                 p={["10px", "20px", "20px", "20px"]}
+                position="relative"
+                borderRadius="md"
+                bg="white"
               >
                 <Box mb={"10px"} mx={"auto"} w={"100%"}>
                   <ImgBox src={elem.image} category={elem.category} />
@@ -167,18 +164,14 @@ const Slider5 = () => {
                 {/* Points */}
                 <Text fontSize={"14px"} fontWeight={700} mb="15px">
                   {elem.points}
-                </Text>
+                  </Text>
 
-                {/* Sign In Button */}
-                <Button
-                  backgroundColor="black"
-                  color="white"
-                  _hover={{ backgroundColor: "gray.800" }}
-                  size="sm"
-                  onClick={() => handleNavigation("/signin")}
-                >
-                  Sign In to Access
-                </Button>
+                {/* Price */}
+                {elem.price && (
+                  <Text fontSize={"16px"} fontWeight={700} color="black" mb="15px">
+                    ${elem.price}
+                  </Text>
+                )}
               </SimpleGrid>
             </SimpleGrid>
           ))}
@@ -188,4 +181,4 @@ const Slider5 = () => {
   );
 };
 
-export default Slider5;
+export default Slider3;
