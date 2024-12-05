@@ -1,5 +1,19 @@
-import { Box, Image, Text, SimpleGrid, Button } from "@chakra-ui/react";
+import React from "react";
+import { Box, Image, Text, Button } from "@chakra-ui/react";
+import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
+
+// Slider settings
+const sliderSettings = {
+  dots: true, // Show dots for pagination
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1, // Show one card per slide
+  slidesToScroll: 1,
+  arrows: false, // Optional: you can keep arrows for navigation
+  autoplay: true, // Optional: autoplay the slider
+  autoplaySpeed: 3000, // Autoplay speed in ms
+};
 
 const Section1 = () => {
   const navigate = useNavigate();
@@ -34,7 +48,7 @@ const Section1 = () => {
 
   return (
     <Box w="100%" p={5}>
-      <SimpleGrid columns={[1, 2, 3]} spacing={6} px={[4, 6, 12]}>
+      <Slider {...sliderSettings}>
         {cards.map((card, index) => (
           <Box
             key={index}
@@ -79,7 +93,7 @@ const Section1 = () => {
             </Box>
           </Box>
         ))}
-      </SimpleGrid>
+      </Slider>
     </Box>
   );
 };
