@@ -11,18 +11,18 @@ const Slider1 = () => {
   const settings = {
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 1, // Ensure only one slide is visible at a time
     slidesToScroll: 1,
     autoplay: false,
-    dots: true,
-    arrows: true,
+    dots: true, // Show dots for navigation
+    arrows: false, // Hide arrows on small screens
     draggable: true, // Allows sliding by clicking anywhere on the image
     customPaging: (i) => (
       <div
         style={{
           width: "6px",
           height: "6px",
-          background: i === currentIndex ? "#FFD670" : "#f5f5f5",
+          background: i === currentIndex ? "#FFD670" : "#f5f5f5", // Highlight active dot
           borderRadius: "50%",
           cursor: "pointer",
           margin: "5px 0",
@@ -37,30 +37,30 @@ const Slider1 = () => {
           marginTop: "10px",
         }}
       >
-        {dots}
+        {dots} {/* Display dots below the slider */}
       </div>
     ),
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1024, // On large screens (>= 1024px)
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3, // Show 3 slides at once on large screens
           slidesToScroll: 1,
-          dots: true,
-          arrows: false,
+          dots: false, // Hide dots on large screens
+          arrows: true, // Enable arrows on large screens
         },
       },
       {
-        breakpoint: 768,
+        breakpoint: 768, // On small screens (< 1024px)
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1, // Only 1 slide visible at a time on small screens
           slidesToScroll: 1,
-          dots: true,
-          arrows: false,
+          dots: true, // Enable dots on small screens
+          arrows: false, // Disable arrows on small screens
         },
       },
     ],
-    beforeChange: (current, next) => setCurrentIndex(next),
+    beforeChange: (current, next) => setCurrentIndex(next), // Update the index when the slide changes
   };
 
   return (
@@ -70,7 +70,7 @@ const Slider1 = () => {
           <Box
             key={i}
             cursor="pointer"
-            p="10px" // No space between images
+            p="10px" // Adds gap between images
             textAlign="center"
             display="flex"
             flexDirection="column"
@@ -89,7 +89,8 @@ const Slider1 = () => {
               p="20px"
               textAlign="left"
               bgColor={elem.bg}
-              h="auto" // Allows the content box to grow based on the text
+              h="auto" // Content box height based on text
+              mt="10px" // Adds space between the image and the description
             >
               <Text fontWeight="700" fontSize="20px">
                 {elem.title}
@@ -109,4 +110,3 @@ const Slider1 = () => {
 };
 
 export default Slider1;
-
