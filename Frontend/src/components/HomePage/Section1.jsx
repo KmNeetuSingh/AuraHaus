@@ -71,7 +71,6 @@ const Section1 = () => {
               borderRadius="lg"
             />
             <Box
-              p={4}
               bg={card.bgColor}
               borderRadius="lg"
               borderTopLeftRadius="0"
