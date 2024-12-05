@@ -72,6 +72,33 @@ const Slider1 = () => {
     autoplay: false,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    dots: true, 
+    customPaging: (i) => (
+      <div
+        style={{
+          width: "10px",
+          height: "10px",
+          background: i === currentIndex ? "#FFD670" : "#ddd",
+          borderRadius: "50%",
+          margin: "5px",
+          cursor: "pointer",
+        }}
+      ></div>
+    ),
+    appendDots: (dots) => (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          padding: "10px",
+          position: "absolute",
+          bottom: "-30px",
+          width: "100%",
+        }}
+      >
+        {dots}
+      </div>
+    ),
     responsive: [
       {
         breakpoint: 1024, // For tablets
@@ -80,10 +107,12 @@ const Slider1 = () => {
         },
       },
       {
-        breakpoint: 768, // For mobile devices
+        breakpoint: 768, 
         settings: {
-          slidesToShow: 1, // Show only 1 image at a time
+          slidesToShow: 1, 
           slidesToScroll: 1,
+          dots: true, 
+          arrows: false,
         },
       },
     ],
