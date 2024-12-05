@@ -1,4 +1,4 @@
-import { Box, Img, SimpleGrid, Text, Button } from "@chakra-ui/react";
+import { Box, Button, Img, SimpleGrid, Text } from "@chakra-ui/react";
 import Slider from "react-slick";
 import slides from "../../Utils/Homepage/Slider3";
 import { useNavigate } from "react-router-dom";
@@ -25,6 +25,7 @@ const Slider3 = () => {
           top: "50%",
           transform: "translateY(-50%)",
           cursor: "pointer",
+          transition: "opacity 0.3s ease, transform 0.3s ease",
           zIndex: 10,
           opacity: 0,
         }}
@@ -54,6 +55,7 @@ const Slider3 = () => {
           top: "50%",
           transform: "translateY(-50%)",
           cursor: "pointer",
+          transition: "opacity 0.3s ease, transform 0.3s ease",
           zIndex: 10,
           opacity: 0,
         }}
@@ -68,23 +70,25 @@ const Slider3 = () => {
   const settings = {
     infinite: true,
     speed: 500,
-    slidesToShow: 1.5,
-    slidesToScroll: 1,
+    slidesToShow: 6,
+    slidesToScroll: 6,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 1.2,
-          slidesToScroll: 1,
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
         },
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
           nextArrow: false,
           prevArrow: false,
         },
@@ -94,38 +98,30 @@ const Slider3 = () => {
 
   const handleClick = (elem) => {
     const category = elem;
+    handleNavigation(`/products`);
     handleNavigation(`/products?category=${category.replace(" & ", "%20%26%20")}`);
   };
 
-  const ImgBox = ({ src, category }) => (
-    <Img
-      onClick={() => handleClick(category)}
-      alt="slider"
-      src={src}
-      width="100%"
-      height={["200px", "250px", "300px"]}
-      borderRadius="md"
-      transition="transform 0.3s ease"
-      _hover={{ transform: "scale(1.1)" }}
-    />
-  );
+  const ImgBox = ({ src, category }) => {
+    return (
+      <Img
+        onClick={() => handleClick(category)}
+        alt="slider"
+        width="100%"
+        maxWidth="100%"  // Ensure image is responsive
+        src={src}
+        objectFit="cover"  // Optional: ensures image fills the container
+      />
+    );
+  };
 
   return (
     <Box
       p={["4", "6", "12", "16"]}
       pt={[6, 6, 6, 6]}
       pb={[12, 12, 12, 12]}
-      bg="gray.900"
-      borderRadius="lg"
-      boxShadow="dark-lg"
     >
-      <Text
-        fontWeight={650}
-        fontSize={["20px", "24px", "30px"]}
-        mb="8"
-        color="white"
-        textAlign="center"
-      >
+      <Text fontWeight={650} fontSize={["24px", "30px"]} mb={4}>
         New Arrivals
       </Text>
 
@@ -143,47 +139,47 @@ const Slider3 = () => {
       >
         <Slider {...settings}>
           {slides.map((elem, i) => (
-            <SimpleGrid
-              key={i}
-              cursor="pointer"
-              padding="10px"
-              maxW="350px"
-              mx="auto"
-              bg="white"
-              boxShadow="0px 6px 12px rgba(0, 0, 0, 0.3)"
-              _hover={{ transform: "translateY(-5px)" }}
-              borderRadius="md"
-            >
-              <Box mb="10px" mx="auto" w="full">
-                <ImgBox src={elem.image} category={elem.category} />
-              </Box>
-              <Text fontSize={["12px", "14px", "15px"]} fontWeight={500} mb="5px">
-                {elem.title}
-              </Text>
-              <Text fontSize={["11px", "13px", "14px"]} fontWeight={400} mb="5px">
-                {elem.description}
-              </Text>
-              <Text fontSize={["12px", "14px"]} fontWeight={700} mb="10px">
-                {elem.points}
-              </Text>
-              {elem.price && (
-                <Text
-                  fontSize={["14px", "16px"]}
-                  fontWeight={700}
-                  color="black"
-                  mb="10px"
-                >
-                  ${elem.price}
+            <SimpleGrid key={i} cursor={"pointer"} padding={"10px"}>
+              <SimpleGrid
+                boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2), 0px 2px 4px rgba(0, 0, 0, 0.15)"
+                _hover={{ transform: "translateY(-5px)" }}
+                p={["10px", "20px", "20px", "20px"]}
+              >
+                <Box mb={"10px"} mx={"auto"} w={"100%"}>
+                  <ImgBox src={elem.image} category={elem.category} />
+                </Box>
+
+                {/* Title */}
+                <Text fontSize={["13px", "15px"]} fontWeight={500} mb="5px">
+                  {elem.title}
                 </Text>
-              )}
-              <Box display="flex" justifyContent="space-between">
-                <Button colorScheme="teal" size="sm">
-                  Apply Now
+
+                {/* Description */}
+                <Text fontWeight={400} fontSize={["12px", "14px"]} mb="5px">
+                  {elem.description}
+                </Text>
+
+                {/* Short Description */}
+                <Text fontSize={["12px", "13px"]} fontWeight={400} mb="10px">
+                  {elem.shortDescription}
+                </Text>
+
+                {/* Points */}
+                <Text fontSize={["13px", "14px"]} fontWeight={700} mb="15px">
+                  {elem.points}
+                </Text>
+
+                {/* Sign In Button */}
+                <Button
+                  backgroundColor="black"
+                  color="white"
+                  _hover={{ backgroundColor: "gray.800" }}
+                  size="sm"
+                  onClick={() => handleNavigation("/signin")}
+                >
+                  Sign In to Access
                 </Button>
-                <Button colorScheme="blue" size="sm">
-                  See Now
-                </Button>
-              </Box>
+              </SimpleGrid>
             </SimpleGrid>
           ))}
         </Slider>
