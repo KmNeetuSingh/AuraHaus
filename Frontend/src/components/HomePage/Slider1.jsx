@@ -8,77 +8,20 @@ import slides from "../../Utils/Homepage/Slider1";
 const Slider1 = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Custom Next Arrow
-  const SampleNextArrow = (props) => {
-    const { onClick } = props;
-    return (
-      <div
-        style={{
-          position: "absolute",
-          right: "20px",
-          top: "50%",
-          transform: "translateY(-50%)",
-          background: "rgba(0, 0, 0, 0.6)",
-          borderRadius: "50%",
-          padding: "12px",
-          zIndex: 1,
-          cursor: "pointer",
-          color: "#fff",
-          fontSize: "18px",
-          opacity: 0,
-          transition: "opacity 0.3s ease, transform 0.3s ease",
-        }}
-        className="arrow-button"
-        onClick={onClick}
-      >
-        &#10095;
-      </div>
-    );
-  };
-
-  // Custom Prev Arrow
-  const SamplePrevArrow = (props) => {
-    const { onClick } = props;
-    return (
-      <div
-        style={{
-          position: "absolute",
-          left: "20px",
-          top: "50%",
-          transform: "translateY(-50%)",
-          background: "rgba(0, 0, 0, 0.6)",
-          borderRadius: "50%",
-          padding: "12px",
-          zIndex: 1,
-          cursor: "pointer",
-          color: "#fff",
-          fontSize: "18px",
-          opacity: 0,
-          transition: "opacity 0.3s ease, transform 0.3s ease",
-        }}
-        className="arrow-button"
-        onClick={onClick}
-      >
-        &#10094;
-      </div>
-    );
-  };
-
   const settings = {
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: false,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-    dots: true, 
+    dots: true,
+    arrows: true,
     customPaging: (i) => (
       <div
         style={{
-          width: "10px",
-          height: "10px",
-          background: i === currentIndex ? "#FFD670" : "#ddd",
+          width: "8px",
+          height: "8px",
+          background: i === currentIndex ? "#FFD670" : "#f5f5f5",
           borderRadius: "50%",
           margin: "5px",
           cursor: "pointer",
@@ -92,7 +35,7 @@ const Slider1 = () => {
           justifyContent: "center",
           padding: "10px",
           position: "absolute",
-          bottom: "-30px",
+          top: "-5px",
           width: "100%",
         }}
       >
@@ -101,17 +44,20 @@ const Slider1 = () => {
     ),
     responsive: [
       {
-        breakpoint: 1024, // For tablets
+        breakpoint: 1024,
         settings: {
           slidesToShow: 2,
+          slidesToScroll: 1,
+          dots: true,
+          arrows: false,
         },
       },
       {
-        breakpoint: 768, 
+        breakpoint: 768,
         settings: {
-          slidesToShow: 1, 
+          slidesToShow: 1,
           slidesToScroll: 1,
-          dots: true, 
+          dots: true,
           arrows: false,
         },
       },
@@ -120,20 +66,7 @@ const Slider1 = () => {
   };
 
   return (
-    <Box
-      className="slider-container"
-      position="relative"
-      maxWidth="100%"
-      overflow="hidden"
-      onMouseEnter={() => {
-        const buttons = document.querySelectorAll(".arrow-button");
-        buttons.forEach((button) => (button.style.opacity = 1)); // Show arrows on hover
-      }}
-      onMouseLeave={() => {
-        const buttons = document.querySelectorAll(".arrow-button");
-        buttons.forEach((button) => (button.style.opacity = 0)); // Hide arrows on leave
-      }}
-    >
+    <Box position="relative" maxWidth="100%" overflow="hidden">
       <Slider {...settings}>
         {slides.map((elem, i) => (
           <SimpleGrid
@@ -158,11 +91,7 @@ const Slider1 = () => {
               <Text fontWeight="700" fontSize="20px">
                 {elem.title}
               </Text>
-              <Text
-                fontSize="14px"
-                _hover={{ textDecoration: "underline" }}
-                mb="5px"
-              >
+              <Text fontSize="14px" _hover={{ textDecoration: "underline" }} mb="5px">
                 {elem.description}
               </Text>
               <Text fontSize="14px" fontWeight="700">
