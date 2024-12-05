@@ -43,7 +43,7 @@ const avva = [
   },
   {
     "title": "Charlotte Tilbury",
-    "description": "Lip Cheat Lip Linear",
+    "description": "Lip Cheat Lip Linear Shiny.",
     "image": "https://www.sephora.com/productimages/sku/s2765618-main-zoom.jpg?imwidth=166",
     "price": "17.00",
     "rating": 4.3
