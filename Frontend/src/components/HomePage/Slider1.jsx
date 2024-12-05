@@ -76,7 +76,11 @@ const Slider1 = () => {
             width={{ base: "100%", md: "90%", lg: "80%" }}
             mx="auto"
           >
-            <Box width="100%" onClick={() => setCurrentIndex(i)}>
+            <Box
+              width="100%"
+              onClick={() => setCurrentIndex(i)}
+              mb="20px" // Adds space between the image and the dots
+            >
               <Img
                 src={elem.img}
                 alt="slider image"
@@ -87,13 +91,7 @@ const Slider1 = () => {
                 borderRadius="md"
               />
             </Box>
-            <Box
-              p="20px"
-              textAlign="left"
-              bgColor={elem.bg}
-              h="150px"
-              mt="0" // Removed margin
-            >
+            <Box p="20px" textAlign="left" bgColor={elem.bg} h="150px">
               <Text fontWeight="700" fontSize="20px">
                 {elem.title}
               </Text>
