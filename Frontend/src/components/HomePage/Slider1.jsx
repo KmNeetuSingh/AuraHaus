@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Box, Img, SimpleGrid, Text } from "@chakra-ui/react";
+import { Box, Img, Text } from "@chakra-ui/react";
 import slides from "../../Utils/Homepage/Slider1";
 
 const Slider1 = () => {
@@ -64,14 +64,17 @@ const Slider1 = () => {
   };
 
   return (
-    <Box position="relative" maxWidth="100%" overflow="hidden" padding="10px">
+    <Box position="relative" maxWidth="100%" overflow="hidden" padding="0px">
       <Slider {...settings}>
         {slides.map((elem, i) => (
           <Box
             key={i}
             cursor="pointer"
-            p="10px" // Adds gap between images
+            p="10px" // No space between images
             textAlign="center"
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
           >
             <Img
               src={elem.img}
@@ -86,8 +89,7 @@ const Slider1 = () => {
               p="20px"
               textAlign="left"
               bgColor={elem.bg}
-              h="150px"
-              mt="10px" // Adds space between the image and content box
+              h="auto" // Allows the content box to grow based on the text
             >
               <Text fontWeight="700" fontSize="20px">
                 {elem.title}
@@ -107,3 +109,4 @@ const Slider1 = () => {
 };
 
 export default Slider1;
+
