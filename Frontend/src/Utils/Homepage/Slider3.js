@@ -12,7 +12,7 @@ const slides = [
     image: "https://www.sephora.com/productimages/sku/s2814325-main-zoom.jpg?imwidth=166",
     price: "$52.00",
     description: "Auto-Tone Skin..",
-    shortDescription: "Skin tone correction for a brighter, even complexion.",
+    shortDescription: "Skin tone correction for, even complexion.",
     category: "Skincare",
   },
   {
@@ -20,7 +20,7 @@ const slides = [
     image: "https://www.sephora.com/productimages/sku/s2810539-main-zoom.jpg?imwidth=166",
     price: "$68.00",
     description: "Clinical PRO Rent...",
-    shortDescription: "Resurfacing treatment for smoother, younger-looking skin.",
+    shortDescription: "Resurfacing treatment .",
     category: "Skincare",
   },
   {
@@ -36,7 +36,7 @@ const slides = [
     image: "https://www.sephora.com/productimages/sku/s2811628-main-zoom.jpg?imwidth=166",
     price: "$39.00",
     description: "Mini Triple Acid...",
-    shortDescription: "Mini facial exfoliation kit for smoother skin.",
+    shortDescription: "Mini facial exfoliation",
     category: "Skincare",
   },
   {
@@ -60,15 +60,15 @@ const slides = [
     image: "https://www.sephora.com/productimages/sku/s2648467-main-zoom.jpg?imwidth=122",
     price: "$22.00",
     description: "Pout Preserve Hydr...",
-    shortDescription: "Hydrating lip treatment for smooth, plump lips.",
+    shortDescription: "Hydrating lip treatment for lips.",
     category: "Skincare",
   },
   {
     title: "SEPHORA COLLE...",
     image: "https://www.sephora.com/productimages/sku/s2759959-main-zoom.jpg?imwidth=122",
     price: "$20.00",
-    description: "Hydrating Cica Expre...",
-    shortDescription: "Soothing skincare to calm irritated skin.",
+    description: "Hydrating Cica ",
+    shortDescription: "Soothing skincare",
     category: "Skincare",
   },
   {

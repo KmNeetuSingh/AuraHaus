@@ -9,7 +9,7 @@ const Slider2 = () => {
   const [showArrows, setShowArrows] = React.useState(false);
 
   const buttonStyles = {
-    display: showArrows ? "flex" : "none", // Toggle visibility
+    display: showArrows ? "flex" : "none",
     justifyContent: "center",
     alignItems: "center",
     background: "rgba(0, 0, 0, 0.5)",
@@ -82,19 +82,9 @@ const Slider2 = () => {
           prevArrow: false,
         },
       },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          nextArrow: false,
-          prevArrow: false,
-        },
-      },
     ],
   };
 
-  // Function to render stars for the rating
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
     const halfStar = rating % 1 >= 0.5 ? 1 : 0;
@@ -120,41 +110,52 @@ const Slider2 = () => {
       pb={[12, 12, 12, 12]}
       w="full"
       h="auto"
-      onMouseEnter={() => setShowArrows(true)} // Show arrows on hover
-      onMouseLeave={() => setShowArrows(false)} // Hide arrows when hover ends
+      onMouseEnter={() => setShowArrows(true)}
+      onMouseLeave={() => setShowArrows(false)}
     >
-      <Text fontWeight={650} fontSize={["24px", "30px"]}>
+      <Text fontWeight={650} fontSize={["24px", "28px", "30px"]}>
         Chosen For You
       </Text>
 
       <Slider {...settings}>
         {avva.map((elem, i) => (
-          <SimpleGrid key={i} cursor={"pointer"} padding={["5px", "10px", "20px"]}>
+          <SimpleGrid key={i} cursor={"pointer"} padding={"10px"}>
             <SimpleGrid
               boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2), 0px 2px 4px rgba(0, 0, 0, 0.15)"
               _hover={{ transform: "translateY(-5px)" }}
-              p={["5px", "10px", "20px"]}
-              alignItems="center"
-              justifyContent="center"
+              p={["10px", "20px", "20px", "20px"]}
             >
-              <Box mb={"10px"} mx={"auto"} w={"100%"}>
-                <Img
-                  alt="slider"
-                  width={["80%", "70%", "80%", "80%"]}
-                  src={elem.image}
-                  objectFit="contain"
-                />
+              <Box mb={"10px"} mx={"auto"} w={["100px", "150px", "200px"]}>
+                <Img alt="slider" width={"80%"} src={elem.image} />
               </Box>
-              <Text fontSize={["12px", "14px"]} fontWeight={700}>
+              <Text
+                fontSize={["10px", "12px"]}
+                fontWeight={700}
+                textAlign={["center", "left"]}
+              >
                 {elem.title}
               </Text>
-              <Text fontWeight={400} fontSize={["12px", "14px", "16px"]} whiteSpace="prewrap">
+              <Text
+                fontWeight={400}
+                fontSize={["12px", "14px", "16px"]}
+                whiteSpace="prewrap"
+                textAlign={["center", "left"]}
+              >
                 {elem.description}
               </Text>
-              <Text fontWeight={700} fontSize={["12px", "14px"]} color={"Black.500"}>
+              <Text
+                fontWeight={700}
+                fontSize={["10px", "12px", "14px"]}
+                color={"Black.500"}
+                textAlign={["center", "left"]}
+              >
                 {renderStars(elem.rating)}
               </Text>
-              <Text fontSize={["16px", "18px"]} fontWeight={700}>
+              <Text
+                fontSize={["14px", "16px", "18px"]}
+                fontWeight={700}
+                textAlign={["center", "left"]}
+              >
                 {elem.price.includes("-")
                   ? `$${elem.price.split("-")[0]} - $${
                       elem.price.split("-")[1]
