@@ -168,17 +168,6 @@ const Slider3 = () => {
                 <Text fontSize={["13px", "14px"]} fontWeight={700} mb="15px">
                   {elem.points}
                 </Text>
-
-                {/* Sign In Button */}
-                <Button
-                  backgroundColor="black"
-                  color="white"
-                  _hover={{ backgroundColor: "gray.800" }}
-                  size="sm"
-                  onClick={() => handleNavigation("/signin")}
-                >
-                  Sign In to Access
-                </Button>
               </SimpleGrid>
             </SimpleGrid>
           ))}
