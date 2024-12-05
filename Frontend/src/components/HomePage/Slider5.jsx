@@ -135,34 +135,53 @@ const Slider5 = () => {
       >
         <Slider {...settings}>
           {slides.map((elem, i) => (
-            <SimpleGrid key={i} cursor={"pointer"} padding={["5px", "10px", "15px", "20px"]}>
+            <SimpleGrid
+              key={i}
+              cursor={"pointer"}
+              padding={["5px", "10px", "15px", "20px"]}
+            >
               <SimpleGrid
                 boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2), 0px 2px 4px rgba(0, 0, 0, 0.15)"
                 _hover={{ transform: "translateY(-5px)" }}
                 p={["10px", "15px", "20px", "25px"]}
-                borderRadius="8px"
               >
                 <Box mb={"10px"} mx={"auto"} w={"100%"}>
                   <ImgBox src={elem.image} category={elem.category} />
                 </Box>
 
                 {/* Title */}
-                <Text fontSize={["13px", "14px", "15px", "16px"]} fontWeight={500} mb="5px">
+                <Text
+                  fontSize={["13px", "14px", "15px", "16px"]}
+                  fontWeight={500}
+                  mb="5px"
+                >
                   {elem.title}
                 </Text>
 
                 {/* Description */}
-                <Text fontWeight={400} fontSize={["12px", "13px", "14px", "15px"]} mb="5px">
+                <Text
+                  fontWeight={400}
+                  fontSize={["12px", "13px", "14px", "15px"]}
+                  mb="5px"
+                >
                   {elem.description}
                 </Text>
 
                 {/* Short Description */}
-                <Text fontSize={["11px", "12px", "13px", "14px"]} fontWeight={400} mb="10px">
+                <Text
+                  fontSize={["11px", "12px", "13px", "14px"]}
+                  fontWeight={400}
+                  mb="10px"
+                >
                   {elem.shortDescription}
                 </Text>
 
                 {/* Points */}
-                <Text fontSize={["12px", "13px", "14px", "15px"]} fontWeight={700} mb="15px">
+                <Text
+                  fontSize={["12px", "13px", "14px", "15px"]}
+                  fontWeight={700}
+                  mb="15px"
+                >
                   {elem.points}
                 </Text>
 

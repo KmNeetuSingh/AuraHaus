@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Img, SimpleGrid, Text, Button } from "@chakra-ui/react";
 import Slider from "react-slick";
-import slides from "../../Utils/Homepage/Slider4";
+import slides from "../../Utils/Homepage/Slider4"; // The JSON array provided
 import { useNavigate } from "react-router-dom";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
@@ -117,7 +117,7 @@ const Slider4 = () => {
       <Slider {...settings}>
         {slides.map((elem, i) => (
           <SimpleGrid key={i} padding="10px">
-            <SimpleGrid boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)">
+            <SimpleGrid boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2), 0px 2px 4px rgba(0, 0, 0, 0.15)">
               <Box mb="10px" mx="auto" w="100%">
                 <Img
                   alt="slider"
@@ -130,13 +130,21 @@ const Slider4 = () => {
               <Text fontSize="16px" fontWeight={700}>
                 {elem.title}
               </Text>
-              <Text fontWeight={400} fontSize="14px" whiteSpace="prewrap">
+              <Text fontSize="14px" fontWeight={500} color="gray.600" mt="2">
+                {elem.title2} {/* New title2 displayed */}
+              </Text>
+              <Text
+                fontWeight={400}
+                fontSize="14px"
+                whiteSpace="prewrap"
+                mt="4"
+              >
                 {elem.description}
               </Text>
               <Button
                 mt="10px"
                 color="black"
-                _hover={{ bg: "gray.700" }}
+                _hover={{ bg: "black.700" }}
                 onClick={() => handleNavigation(elem.category)}
               >
                 Shop Now

@@ -4,7 +4,7 @@ const slides = [
     image:
       "https://www.sephora.com/contentimages/promo/beautyoffers/2024/November/2024-cyber-general-sale-site-desktop-mobile-app-beauty-offers-page-banner-hair-tools-1000x750-us-3073.jpg?imwidth=240",
     title2: "Choose between the Ouai Anti Frizz Creme or the Oribe Dry Texturizing Spray.",
-    description: "Free with $30 purchase. Beauty Insider members only. Online only. *Exclusions/terms apply.",
+    description: "Free with $30 purchase. Beauty Insider members only. Online only.",
     category: "Gift And Gift Card",
   },
   {
@@ -28,7 +28,7 @@ const slides = [
     image:
       "https://www.sephora.com/contentimages/promo/beautyoffers/2024/October/2024-10-30-SUOIL-slotting-promo-app-beauty-offers-banner-US-CAN-handoff.jpg?imwidth=240",
     title2: "Receive a ONE/SIZE by Patrick Starrr setting powder in two shades.",
-    description: "Free with $30 purchase. Beauty Insider members only. Online only. *Exclusions/terms apply.",
+    description: "Free with $30 purchase. Beauty Insider members only. Online only.",
     category: "Gift And Gift Card",
   },
   {
@@ -60,7 +60,7 @@ const slides = [
     image:
       "https://www.sephora.com/contentimages/promo/bpme/2024/July/2024-7-25-july-bpme-site-desktop-mobile-app-beauty-offers-page-banner-lancome-en-us-can.jpg?imwidth=240",
     title2: "Enjoy options from Nécessaire, Sol de Janeiro, and more.",
-    description: "Free with $30 purchase. Beauty Insider members only. Online only. *Exclusions/terms apply.",
+    description: "Free with $30 purchase. Beauty Insider members only. Online only.",
     category: "Gift And Gift Card",
   },
   {
@@ -68,7 +68,7 @@ const slides = [
     image:
       "https://www.sephora.com/contentimages/promo/beautyoffers/2024/July/2024-08-CC-GP-activation-offer-site-beauty-offers-banner-1000x750.jpg?imwidth=240",
     title2: "Apply for the Sephora Visa Signature® Credit Card.",
-    description: "Spend $1,500 outside Sephora within the first 90 days. Ends 9/25/2024. Terms apply.",
+    description: "Spend $1,500 outside Sephora within the first 90 days. ",
     category: "Gift And Gift Card",
   },
   {
