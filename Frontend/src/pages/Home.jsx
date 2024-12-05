@@ -22,7 +22,7 @@ const Home = () => {
       <Slider5 />
       <Divider w={"80%"} m={"auto"} />
       <Section2 />
-
+      <Section2/>
       <Section4 />
       <Footer />
     </Box>
