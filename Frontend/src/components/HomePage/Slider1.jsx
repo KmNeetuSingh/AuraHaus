@@ -7,8 +7,6 @@ import slides from "../../Utils/Homepage/Slider1";
 
 const Slider1 = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const totalSlides = slides.length;
-  const slidesToShow = 3;
 
   // Custom Next Arrow
   const SampleNextArrow = (props) => {
@@ -20,13 +18,13 @@ const Slider1 = () => {
           right: "20px",
           top: "50%",
           transform: "translateY(-50%)",
-          background: "rgba(0, 0, 0, 0.6)", 
+          background: "rgba(0, 0, 0, 0.6)",
           borderRadius: "50%",
           padding: "12px",
           zIndex: 1,
           cursor: "pointer",
-          color: "#fff", 
-          fontSize: "18px", 
+          color: "#fff",
+          fontSize: "18px",
           opacity: 0,
           transition: "opacity 0.3s ease, transform 0.3s ease",
         }}
@@ -48,13 +46,13 @@ const Slider1 = () => {
           left: "20px",
           top: "50%",
           transform: "translateY(-50%)",
-          background: "rgba(0, 0, 0, 0.6)", 
+          background: "rgba(0, 0, 0, 0.6)",
           borderRadius: "50%",
           padding: "12px",
           zIndex: 1,
           cursor: "pointer",
-          color: "#fff", 
-          fontSize: "18px", 
+          color: "#fff",
+          fontSize: "18px",
           opacity: 0,
           transition: "opacity 0.3s ease, transform 0.3s ease",
         }}
@@ -67,13 +65,28 @@ const Slider1 = () => {
   };
 
   const settings = {
-    infinite: false,
+    infinite: true,
     speed: 500,
-    slidesToShow,
-    slidesToScroll: slidesToShow,
+    slidesToShow: 3,
+    slidesToScroll: 1,
     autoplay: false,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024, // For tablets
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 768, // For mobile devices
+        settings: {
+          slidesToShow: 1, // Show only 1 image at a time
+          slidesToScroll: 1,
+        },
+      },
+    ],
     beforeChange: (current, next) => setCurrentIndex(next),
   };
 
@@ -81,6 +94,8 @@ const Slider1 = () => {
     <Box
       className="slider-container"
       position="relative"
+      maxWidth="100%"
+      overflow="hidden"
       onMouseEnter={() => {
         const buttons = document.querySelectorAll(".arrow-button");
         buttons.forEach((button) => (button.style.opacity = 1)); // Show arrows on hover
@@ -92,27 +107,36 @@ const Slider1 = () => {
     >
       <Slider {...settings}>
         {slides.map((elem, i) => (
-          <SimpleGrid key={i} cursor={"pointer"} p={"10px"} w="100%">
-            <Box mb={"10px"} mx={"auto"} w={"100%"}>
+          <SimpleGrid
+            key={i}
+            cursor="pointer"
+            p="10px"
+            width={{ base: "100%", md: "90%", lg: "80%" }}
+            mx="auto"
+          >
+            <Box mb="10px" mx="auto" width="100%">
               <Img
                 src={elem.img}
                 alt="slider image"
-                w="700px"
-                h="400px"
+                width="100%"
+                height={{ base: "200px", md: "300px", lg: "400px" }}
                 objectFit="cover"
-                cursor={"pointer"}
+                cursor="pointer"
+                borderRadius="md"
               />
             </Box>
-            <Box p={"20px"} textAlign={"left"} bgColor={elem.bg} h={"150px"}>
-              <Text fontWeight={700} fontSize={"20px"}>{elem.title}</Text>
+            <Box p="20px" textAlign="left" bgColor={elem.bg} h="150px">
+              <Text fontWeight="700" fontSize="20px">
+                {elem.title}
+              </Text>
               <Text
-                fontSize={"14px"}
+                fontSize="14px"
                 _hover={{ textDecoration: "underline" }}
-                mb={"5px"}
+                mb="5px"
               >
                 {elem.description}
               </Text>
-              <Text fontSize={"14px"} fontWeight={700}>
+              <Text fontSize="14px" fontWeight="700">
                 SHOP NOW ▸
               </Text>
             </Box>

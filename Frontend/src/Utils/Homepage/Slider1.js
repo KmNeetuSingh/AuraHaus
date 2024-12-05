@@ -1,27 +1,27 @@
 const slides = [
   {
-    img: "https://www.sephora.com/contentimages/2025-cyber-monday-site-home-page-RWD-hero-banner-2941-us-can.jpg?imwidth=545",
+    img: "https://www.sephora.com/contentimages/2024-12-02-slotting-holiday-site-rwd-home-page-hero-banner-moroccanoil-us-handoff_01.jpg?imwidth=545",
     title: "Cyber Week : up to 30%% Off",
     description:
       "Save on Peter Thomas Roth & Youth to the people.Today only!",
-    bg: "#ECB7D3",
-    clr: "black",
-    category: "Shop now",
-  },
-  {
-    img: "https://www.sephora.com/contentimages/2024-cyber-gen-sale-site-home-page-rwd-hero-banner-2944-us-header.jpg?imwidth=545",
-    title: "Cyber Week :up to 50% Off",
-    description: "Our best deals the Season",
-    bg: "#ABCF41",
+    bg:"#145442",
     clr: "black",
     category: "Shop now",
   },
   {
     img: "https://www.sephora.com/contentimages/FY243785-2024-holiday-site-desktop-rwd-hero-banner-value-sets-us-2958-release.jpg?imwidth=545",
+    title: "Cyber Week :up to 50% Off",
+    description: "Our best deals the Season",
+    bg: "#558cba",
+    clr: "black",
+    category: "Shop now",
+  },
+  {
+    img: "https://www.sephora.com/contentimages/2024-q4-fragrance-site-home-page-RWD-hero-banner-value-sets-us-image-only.jpg?imwidth=545",
     title: "Give the Most with Value Sets",
     description: "They're packed with all best beauty",
-    bg: "#FFD670",
-    clr: "black",
+    bg:"black",
+    clr: "white",
     category: "Shop now",
   },
   {

@@ -1,27 +1,24 @@
 import { Box, Text, Flex } from "@chakra-ui/react";
-import HeaderImage from "../../assets/HeaderImage.avif"; // Adjust the path based on your project structure
 
 const Header = () => {
   return (
     <Box
-      p={["10px", "10px", "18px", "18px"]}
-      bgImage={`url(${HeaderImage})`}
-      bgSize="cover"
-      bgPosition="center"
-      color="Black"
-      fontSize={"14px"}
+      p={["10px", "12px", "16px", "18px"]}
+      bg="lightblue"
+      color="black"
+      fontSize={["12px", "14px", "16px", "18px"]}
       fontWeight={700}
-      cursor={"pointer"}
+      cursor="pointer"
+      textAlign="center"
     >
-      <Flex justifyContent={"flex-start"} alignItems={"center"}>
-        {/* Left Section: Offer Details */}
-        <Text>
-          <span style={{ fontWeight: "bold" }}>
-            Cyber Monday 30% Off Peter Thomas Roth & Youth to the People{" "}
-          </span>
-          <span style={{ fontWeight: "400" }}>Today</span>
+      <Text>
+        <Text as="span" fontWeight="bold">
+          Cyber Monday 30% Off Peter Thomas Roth & Youth to the People{" "}
         </Text>
-      </Flex>
+        <Text as="span" fontWeight="400">
+          Today
+        </Text>
+      </Text>
     </Box>
   );
 };
