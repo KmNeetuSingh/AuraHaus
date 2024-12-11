@@ -64,9 +64,6 @@ function GetSinglePro({ singleData, setAllProducts, allProducts }) {
             <Text color={"blue"} fontWeight={400}>
               {product?.title}
             </Text>
-            <Text fontWeight={400} fontSize={"13px"} mb={3}>
-              ID:{product?._id}
-            </Text>
             <Text fontWeight={400} mb={5}>
               ${product?.price}
             </Text>
