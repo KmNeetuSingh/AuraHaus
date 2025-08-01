@@ -2,6 +2,11 @@
 Your one-stop digital shop for everything stylish, trendy, and convenient! Built to deliver an unmatched shopping experience, AuraHaus combines speed, security, and cool tech to keep you coming back for more.
 
 ---
+## Live demo
+
+https://github.com/user-attachments/assets/464cf7c6-5cfa-4f35-adab-c5062326abc6
+
+
 
 ## **Features** 🚀  
 
